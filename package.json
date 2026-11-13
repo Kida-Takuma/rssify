@@ -1,0 +1,49 @@
+{
+  "name": "rssify",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generate RSS, Atom and JSON Feed for websites without one, on Cloudflare Workers",
+  "author": "Takuma Kida",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kida-Takuma/rssify.git"
+  },
+  "homepage": "https://github.com/Kida-Takuma/rssify#readme",
+  "bugs": "https://github.com/Kida-Takuma/rssify/issues",
+  "keywords": [
+    "rss",
+    "atom",
+    "json-feed",
+    "cloudflare-workers",
+    "scraper"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "dev": "wrangler dev --var FORMATS:rss,atom,json --var OPML:true --var EMBED:true --var ALLOWED_ORIGINS:http://localhost:8790",
+    "deploy": "wrangler deploy",
+    "new": "node tools/new-feed.ts",
+    "lint": "biome check . && knip",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tools",
+    "test": "vitest run",
+    "test:live": "vitest run --config vitest.live.config.ts"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.14.0",
+  "devDependencies": {
+    "@biomejs/biome": "2.6.7",
+    "@cloudflare/vitest-plugin": "1.8.0",
+    "@cloudflare/workers-types": "^5.20261112.1",
+    "@types/node": "^24.19.2",
+    "knip": "6.45.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "4.160.1"
+  }
+}

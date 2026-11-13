@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rssify",
+  "main": "worker.ts",
+  "compatibility_date": "2026-11-01",
+  "preview_urls": false,
+  "dev": { "port": 8790 }
+}
